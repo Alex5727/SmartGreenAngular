@@ -5,6 +5,7 @@
     width: 500px;
     height: 700px;
     justify-content: center;
+
     opacity: 0.9;
     margin: 50px;
 }
@@ -19,6 +20,7 @@
     justify-content: center;
     text-align: center;
     align-items: center;
+
 }
 
 body{
@@ -27,7 +29,8 @@ background-size: cover;
   background-position: center; 
   background-repeat: no-repeat;
 
-  display: flex;              /* Utiliza flexbox para el contenedor */
-  justify-content: center;     /* Centra horizontalmente */
+  display: flex;         
+  justify-content: center;     
   align-items: center;
 }
+
