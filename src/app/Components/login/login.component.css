@@ -1,0 +1,33 @@
+.formu{
+    background-color: #E6E6E6;
+    text-align: center;
+    align-items: center;
+    width: 500px;
+    height: 700px;
+    justify-content: center;
+    opacity: 0.9;
+    margin: 50px;
+}
+
+.logo{
+    width: 400px;
+    height: auto;
+}
+
+
+.a{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+body{
+background-image: "icons/Fondo.png";
+background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+
+  display: flex;              /* Utiliza flexbox para el contenedor */
+  justify-content: center;     /* Centra horizontalmente */
+  align-items: center;
+}
