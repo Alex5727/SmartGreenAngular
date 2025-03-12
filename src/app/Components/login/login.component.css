@@ -1,10 +1,23 @@
 .formu{
-    background-color: #E6E6E6;
+    
+    background-color: #e6e6e6c5;
     text-align: center;
     align-items: center;
     width: 500px;
     height: 700px;
     justify-content: center;
+    border-radius: 20px;
+    
+}
+
+.formu * {
+   opacity: 1; 
+   margin:  0px, 0px, 0px, 0px;
+}
+
+.logo{
+    width: 400px;
+    height: auto;
 }
 
 
@@ -12,4 +25,26 @@
     justify-content: center;
     text-align: center;
     align-items: center;
+
+}
+
+body{
+background-image: "icons/Fondo.png";
+background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+
+  display: flex;         
+  justify-content: center;     
+  align-items: center;
+}
+
+button{
+    background-color: #3d853d; /* Color de fondo */
+    color: white; /* Color del texto */
+    font-size: 16px; /* Tamaño del texto */
+    padding: 5px 24px; /* Espaciado interno */
+    border: none; /* Quitar borde */
+    border-radius: 20px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
 }
