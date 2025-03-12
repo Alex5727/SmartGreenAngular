@@ -4,6 +4,8 @@
     border-radius: 5px;
     display: flex;
     width: 180px;
+    justify-content: right;
+    margin-left: 80px;
 }
 
 .b{
@@ -12,3 +14,4 @@
     justify-content: center;     
     align-items: center;
 }
+
