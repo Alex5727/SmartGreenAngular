@@ -3,9 +3,11 @@
     background-color: #e6e6e6c5;
     text-align: center;
     align-items: center;
+    justify-content: center;
+
     width: 500px;
     height: 700px;
-    justify-content: center;
+    
     border-radius: 20px;
     
 }
@@ -14,14 +16,14 @@
 input{
     width: 400px;
     border-radius: 20px;
-    justify-content: center;
-    align-items: center;
+
+    
 }
 
 
 .formu * {
    opacity: 1; 
-   margin:  0px, 0px, 0px, 0px;
+   
 }
 
 .logo{
@@ -34,6 +36,7 @@ input{
     justify-content: center;
     text-align: center;
     align-items: center;
+    
 }
 
 body{
@@ -56,3 +59,4 @@ button{
     border-radius: 20px; /* Bordes redondeados */
     cursor: pointer; /* Cambia el cursor al pasar el mouse */
 }
+
