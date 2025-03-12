@@ -1,0 +1,14 @@
+.a{
+    color: #ffffff;
+    border: #000;
+    border-radius: 5px;
+    display: flex;
+    width: 180px;
+}
+
+.b{
+    color: #ffffff8e;
+    display: flex;         
+    justify-content: center;     
+    align-items: center;
+}
