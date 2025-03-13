@@ -14,12 +14,15 @@ export class MenuInvernaderosComponent {
 
 
   invernadero: Inver[] = [
-    new Inver("icons/planta.png", "ABV78f", "N/A"),
-    new Inver('icons/planta.png', 'ABV78f', 'N/A'),
-    new Inver('icons/planta.png', 'ABV78f', 'N/A'),
-    new Inver('icons/planta.png', 'ABV78f', 'N/A'),
-    new Inver('icons/planta.png', 'ABV78f', 'N/A'),
-    new Inver('icons/planta.png', 'ABV78f', 'N/A'),
+    new Inver("icons/planta2.png", "ABV78f", "N/A"),
+    new Inver('icons/planta2.png', 'ABV78f', 'N/A'),
+    new Inver('icons/planta2.png', 'ABV78f', 'N/A'),
+    new Inver('icons/planta2.png', 'ABV78f', 'N/A'),
+    new Inver('icons/planta2.png', 'ABV78f', 'N/A'),
+    new Inver('icons/planta2.png', 'ABV78f', 'N/A'),
+  
+
+
     
     ];
 
