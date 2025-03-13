@@ -1,0 +1,16 @@
+.a {
+    height: 330px;
+    border-radius: 20px;
+    width: 300px;
+    justify-content: right;
+    margin: 10px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(113, 113, 113, 0.686);
+}
+
+.imagen {
+    height: 250px;
+    width: 250px;
+    border: 1px solid rgba(113, 113, 113, 0.459);
+    border-radius: 10px;
+}
