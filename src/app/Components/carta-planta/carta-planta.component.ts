@@ -6,6 +6,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './carta-planta.component.html',
   styleUrl: './carta-planta.component.css'
 })
+
 export class CartaPlantaComponent {
   @Input() imageSrc: string = '';
   @Input() title: string = '';
