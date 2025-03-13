@@ -1,17 +1,29 @@
 .a{
-    color: #ffffff;
+   
+    height: 330px;
     border: #000;
-    border-radius: 5px;
-    display: flex;
-    width: 180px;
+    border-radius: 20px;
+    width: 300px;
     justify-content: right;
-    margin-left: 80px;
+    margin: 10px;
+    
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(113, 113, 113, 0.686);
+}
+
+img{
+    height: 250px;
+    width: 250px;
+    border: 1px solid rgba(113, 113, 113, 0.459);
 }
 
 .b{
-    color: #ffffff8e;
+    background-color: rgba(230, 230, 230, 0.547);
     display: flex;         
     justify-content: center;     
     align-items: center;
+    width: 1055px;
+    padding: 30px;
+    border-radius: 20px;
 }
 
