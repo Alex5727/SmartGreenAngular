@@ -19,6 +19,7 @@ export class MenuInvernaderosComponent {
     new Inver('icons/planta.png', 'ABV78f', 'N/A'),
     new Inver('icons/planta.png', 'ABV78f', 'N/A'),
     new Inver('icons/planta.png', 'ABV78f', 'N/A'),
+    new Inver('icons/planta.png', 'ABV78f', 'N/A'),
     
     ];
 
