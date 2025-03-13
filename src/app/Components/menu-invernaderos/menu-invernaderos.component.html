@@ -15,37 +15,14 @@
  <div class="b">
  <div class="d-flex flex-wrap gap-3" style="margin-top:5px;">
       
-  <app-carta-planta
-  imageSrc="icons/planta.png" 
-    title="ABV78f" 
-    owner="N/A">
-  </app-carta-planta>
 
-<app-carta-planta
-imageSrc="icons/planta.png" 
-  title="ABV78f" 
-  owner="N/A">
-</app-carta-planta>
-        
-<app-carta-planta
-imageSrc="icons/planta.png" 
-  title="ABV78f" 
-  owner="N/A">
-</app-carta-planta>
-
-<app-carta-planta
-imageSrc="icons/planta.png" 
-  title="ABV78f" 
-  owner="N/A">
-</app-carta-planta>
-
-<app-carta-planta
-imageSrc="icons/planta.png" 
-  title="ABV78f" 
-  owner="N/A">
-</app-carta-planta>
-
-
+  @for (invernadero of invernadero; track invernadero) {
+    <app-carta-planta
+    imageSrc={{invernadero.imageSrc}}
+      title={{invernadero.title}}
+      owner={{invernadero.owner}}>
+    </app-carta-planta>
+  }
   </div>
 
 </div>

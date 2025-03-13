@@ -11,4 +11,5 @@ export class CartaPlantaComponent {
   @Input() imageSrc: string = '';
   @Input() title: string = '';
   @Input() owner: string = '';
+
 }
