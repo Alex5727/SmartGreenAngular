@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { SiderbarComponent } from '../../siderbar/siderbar.component';
 
 @Component({
   selector: 'app-admin-cuentas',
-  imports: [CommonModule],
+  imports: [CommonModule, SiderbarComponent],
   templateUrl: './admin-cuentas.component.html',
   styleUrl: './admin-cuentas.component.css'
 })
