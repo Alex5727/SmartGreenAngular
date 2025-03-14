@@ -1,0 +1,75 @@
+html, body{
+  height: 100%;
+  margin: 0;
+}
+
+body{
+  background-image: url(../../../assets/Fondo.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.formu {
+  background-color: rgba(230, 230, 230, 0.77);
+  text-align: center;
+  width: 460px;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.logo{
+  margin-left: -19px;
+  height: 230px;
+  width: auto;
+}
+
+input {
+  border-radius: 20px;
+  height: 150;
+}
+
+logo{
+  width: 230px;
+  height: auto;
+
+}
+
+button{
+  font-size: 17px;
+  padding: 5px 24px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#sendEmail{
+    background-color: #717762;
+    color: white;
+}
+
+#btnCancel{
+  background-color: #B2B0A8;
+}
+#sendEmail:hover, #btnCancel:hover{
+  background-color: #939b7f; /* Un color más oscuro para el fondo cuando se pasa el cursor */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para destacar el botón */
+}
+
+
+.helpme{
+  color:#444A36;
+}
+.texto{
+  display: block;  /* Asegura que la etiqueta esté en una línea separada */
+  margin-bottom: 0.5rem;  /* Agrega espacio debajo de la etiqueta */
+  font-weight: bold;
+  text-align: left;
+  margin-left: 10px;
+  font-size:large;
+}
+.description{
+  text-align: left;
+}
