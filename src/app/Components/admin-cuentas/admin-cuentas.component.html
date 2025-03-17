@@ -1,57 +1,74 @@
-<body>
-  <!-- admin-list.component.html -->
-<div class="container">
-  <div class="row">
-    <div class="col px-5">
-      <div class="card bg-transparent py-5 px-5">
-        <div class="container py-5 px-5">
-          <h2 class="text-center mb-4 titleSM">Administradores</h2>
-        
-          @for (admin of adminUsers; track admin.name) {
-            <div class="admin-item d-flex align-items-center justify-content-between p-3 mb-3 rounded shadow-sm">
-              <div class="d-flex align-items-center">
-                <div class="icon bg-light rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
-                  <i class="bi bi-person-fill"></i>
-                </div>
-                <div>
-                  <div class="fw-bold">{{ admin.name }}</div>
-                </div>
-              </div>
-              <div>
-                <i class="bi bi-chevron-right fs-5 text-secondary"></i>
-              </div>
-            </div>
-          }
-        </div>
-       </div>
-    </div>
-    
-    
-    <div class="col px-5">
-      <div class="card bg-transparent py-5 px-5">
-        <div class="container py-5 px-5">
-          <h2 class="text-center mb-4 titleSM">Usuarios</h2>
-        
-          @for (user of normalUsers; track user.name) {
-            <div class="admin-item d-flex align-items-center justify-content-between p-3 mb-3 rounded shadow-sm">
-              <div class="d-flex align-items-center">
-                <div class="icon bg-light rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
-                  <i class="bi bi-person-fill"></i>
-                </div>
-                <div>
-                  <div class="fw-bold">{{ user.name }}</div>
-                </div>
-              </div>
-              <div>
-                <i class="bi bi-chevron-right fs-5 text-secondary"></i>
-              </div>
-            </div>
-          }
-        </div>
-      </div> 
+<body class="mx-0 my-0 px-0 py-0">
+  <h2 class="text-center mb-4 pt-5 titleSM">Administracion de Cuentas</h2>
+  <div class="row justify-content-center">
+    <div class="col-10 col-md-8 col-lg-6">
+      <div class="card" style="background-color: rgba(255, 255, 255, 0.4);">
+        <div class="card-body">
+          <!-- Input de búsqueda con botón -->
+          <div class="input-group mb-0">
+            <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar">
+            <button class="btn btn-outline-secondary" type="button" id="button-search">
+              <i class="bi bi-search"></i> <!-- Icono de búsqueda de Bootstrap Icons -->
+            </button>
+          </div>
+        </div>    
+      </div>
     </div>
   </div>
-    <!-- <app-siderbar></app-siderbar> -->
+  <!-- admin-list.component.html -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col px-5 py-5">
+        <div class="card" style="background-color: rgba(255, 255, 255, 0.4);">
+          <div class="container py-5 px-5">
+            <h2 class="text-center mb-4 titleSM">Administradores</h2>
+          
+            @for (admin of userAdmin; track admin.id) {
+              <div class="d-flex align-items-center justify-content-between p-3 mb-3 rounded shadow-sm" style="background-color: #E6E6E6;">
+                <div class="d-flex align-items-center">
+                  <div class="icon bg-light rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                    <i class="bi bi-person-fill"></i>
+                  </div>
+                  <div>
+                    <div class="fw-bold text-truncate">{{ admin.nombre }}</div>
+                    <div class="text-secondary text-truncate">{{ admin.correo }}</div>
+                  </div>
+                </div>
+                <div>
+                  <i class="bi bi-chevron-right fs-5 text-secondary"></i>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+      
+      <div class="col px-5 py-5">
+        <div class="card" style="background-color: rgba(255, 255, 255, 0.4);">
+          <div class="container py-5 px-5">
+            <h2 class="text-center mb-4 titleSM">Usuarios</h2>
+          
+            @for (user of userscommon; track user.id) {
+              <div class="d-flex align-items-center justify-content-between p-3 mb-3 rounded shadow-sm" style="background-color: #E6E6E6;">
+                <div class="d-flex align-items-center">
+                  <div class="icon bg-light rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                    <i class="bi bi-person-fill"></i>
+                  </div>
+                  <div>
+                    <div class="fw-bold text-truncate">{{ user.nombre }}</div>
+                    <div class="text-secondary text-truncate">{{ user.correo }}</div>
+                  </div>
+                </div>
+                <div>
+                  <i class="bi bi-chevron-right fs-5 text-secondary"></i>
+                </div>
+              </div>
+            }
+          </div>
+        </div> 
+      </div>
+    </div>
+      <!-- <app-siderbar></app-siderbar> -->
   </div> 
   
 </body>

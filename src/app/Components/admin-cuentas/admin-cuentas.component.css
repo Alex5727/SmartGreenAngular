@@ -7,13 +7,6 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   transform: scale(1.01);
 }
-.px-5{
-  margin-top: 50px;
-  margin-left: 10px;
-  margin-right: 10px;
-  background-color: rgb(230, 230, 230, 0.77);
-  
-}
 
 body{
   background-image:url(../../../assets/Fondo.png) ;
