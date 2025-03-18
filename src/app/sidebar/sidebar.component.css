@@ -1,0 +1,78 @@
+/* Estilo para el menú lateral */
+.sidebar {
+  background-color: #f8f9fa; /* Fondo claro */
+  padding-top: 10px;  /* Espacio arriba del menú */
+  margin-left: 0px;
+  height: 100vh;  /* Asegura que el menú ocupe toda la altura */
+  position: fixed; /* Mantiene el menú en su lugar */
+  top: 0;
+  left: 0;
+  width: 250px; /* Ajusta el tamaño del menú */
+  transition: all 0.3s ease; /* Animación suave para mostrar/ocultar */
+}
+
+/* Ajustes para cuando el menú lateral esté oculto en pantallas pequeñas */
+@media (max-width: 767px) {
+  .sidebar {
+    width: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: -250px; /* Desplaza el menú fuera de la pantalla */
+  }
+
+  .sidebar.show {
+    left: 0; /* Muestra el menú lateral */
+    width: 250px; /* Establece el tamaño al abrirse */
+  }
+
+  /* Botón de menú en dispositivos móviles */
+  .sidebar-toggler {
+    display: block;
+  }
+}
+
+/* Ajustes para el logo, responsivo */
+.logo {
+  height: auto;
+  width: 100%; /* Ajusta el logo al tamaño del menú */
+  max-width: 250px; /* Controla el tamaño máximo */
+  display: block;
+  margin: 0 auto;
+}
+
+.nav-item {
+  margin-bottom: 0px; /* Espaciado entre los elementos del menú */
+}
+
+.nav-link {
+  color: #717762; /* Color del texto de los enlaces */
+  text-decoration: none; /* Elimina el subrayado */
+  font-weight: 500; /* Un poco de negrita */
+  font-size: small;
+}
+
+.nav-link:hover {
+  background-color: #e9ecef; /* Fondo al pasar el mouse */
+  border-radius: 4px; /* Bordes redondeados */
+}
+
+/* Cuando la pantalla es mayor que 767px, muestra el menú lateral */
+@media (min-width: 768px) {
+  .sidebar {
+    width: 250px;
+  }
+
+  .sidebar-toggler {
+    display: none; /* Oculta el botón de menú en pantallas grandes */
+  }
+
+  .icons{
+    width: 20px;
+    margin-right: 15px;
+  }
+
+  .goOut{
+    margin-top: 350px;
+  }
+}

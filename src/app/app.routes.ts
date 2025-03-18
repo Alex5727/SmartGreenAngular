@@ -8,14 +8,14 @@ import { Recovery2Component } from './Components/recovery2/recovery2.component';
 import { EstadisticasComponent } from './Components/estadisticas/estadisticas.component';
 import { AdminCuentasComponent } from './Components/admin-cuentas/admin-cuentas.component';
 export const routes: Routes = [
-    {path: 'login', component: LoginComponent},
-    {path: 'menu-invernaderos', component: MenuInvernaderosComponent},
-    {path: 'registrar-invernadero', component: RegistrarInvernaderoComponent},
-    {path: 'reg-usuario', component: RegUsuarioComponent},
-    {path: 'recovery1', component: Recovery1Component},
-    {path: 'recovery2', component: Recovery2Component},
-    {path: 'estadisticas', component: EstadisticasComponent},
-    {path: 'admin-cuentas', component: AdminCuentasComponent},
+    {path: 'login', title: 'Login', component: LoginComponent},
+    {path: 'menu-invernaderos', title: 'Menu Invernaderos', component: MenuInvernaderosComponent},
+    {path: 'registrar-invernadero', title: 'Registrar Inverdero',component: RegistrarInvernaderoComponent},
+    {path: 'reg-usuario', title: 'Registrar Usuario',component: RegUsuarioComponent},
+    {path: 'recovery1',title: 'Recovery', component: Recovery1Component},
+    {path: 'recovery2', title: 'Recovery 2',component: Recovery2Component},
+    {path: 'estadisticas', title: 'Estadisticas',component: EstadisticasComponent},
+    {path: 'admin-cuentas', title: 'Admin Cuentas',component: AdminCuentasComponent},
     {path: '**', redirectTo: '/login', pathMatch: 'full'}
 ];
 
