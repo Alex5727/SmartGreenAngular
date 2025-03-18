@@ -1,1 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+/* src/styles.css */
+
+/* Estilo global para el fondo */
+body {
+    background-image: url('assets/Fondo.png'); /* Asegúrate de que la ruta sea correcta */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  /* Personalización de los componentes en tu página */
+  .title-container {
+    text-align: center;
+  }
+  
+  .container-custom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .form-container {
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-top: 20px;
+  }
+  
+  .input-custom {
+    width: 80%;
+  }
+  
+  .btn-register {
+    margin-top: 30px;
+  }
+  
+  .text-muted-custom {
+    margin-top: 30px;
+  }
+  
+  .fw-bold {
+    font-weight: bold;
+  }
