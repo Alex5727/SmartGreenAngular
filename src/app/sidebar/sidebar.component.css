@@ -7,7 +7,7 @@
   position: fixed; /* Mantiene el menú en su lugar */
   top: 0;
   left: 0;
-  width: 250px; /* Ajusta el tamaño del menú */
+  width: 200px; /* Ajusta el tamaño del menú */
   transition: all 0.3s ease; /* Animación suave para mostrar/ocultar */
 }
 

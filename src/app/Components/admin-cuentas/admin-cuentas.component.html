@@ -71,7 +71,7 @@
   </div>
 
   <!-- Modal de Bootstrap -->
-  <div class="modal-backdrop" *ngIf="selectedUser">
+  <div class="modal-backdrop modal-backdrop-custom" *ngIf="selectedUser">
     <div class="modal d-block" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -80,12 +80,28 @@
             <button type="button" class="btn-close" (click)="closeModal()"></button>
           </div>
           <div class="modal-body">
-            <p><strong>Nombre:</strong> {{ selectedUser.nombre }}</p>
-            <p><strong>Correo:</strong> {{ selectedUser.correo }}</p>
-            <p><strong>Tipo de Usuario:</strong> {{ selectedUser.usuarioTipo }}</p>
+            <label for="Nombre" class="col-form-label">Nombre:</label>
+            <input type="text" class="form-control" id="Nombre" [(ngModel)] = "selectedUser.nombre" >
+            <label for="Correo" class="col-form-label">Correo:</label>
+            <input type="email" class="form-control" id="Correo" [(ngModel)]="selectedUser.correo">
+            <label for="Celular" class="col-form-label">Celular:</label>
+            <input type="text" class="form-control" id="Celular" [(ngModel)]="selectedUser.celular">
+            <div class="dropdown">
+              <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                {{selectedUser.usuarioTipo}}
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                @for (type of userType; track $index) {
+                  <li>
+                    <button class="dropdown-item" type="button" (click)="onSelectType(type)">{{type}}</button>
+                  </li>
+                }
+              </ul>
+            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
+            <button type="button" class="btn btn-success" (click)="saveUser()">Guardar</button>
           </div>
         </div>
       </div>

@@ -1,4 +1,6 @@
+import { FormsModule } from '@angular/forms';
 import { Component } from '@angular/core';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 import { User } from '../models/user.model';
 import { AdminUserService } from '../services/admin-user.service';
 import { CommonModule } from '@angular/common';
@@ -6,8 +8,23 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-admin-cuentas',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './admin-cuentas.component.html',
+  animations: [
+    trigger('fadeInOut',[
+      state('void', style({
+        opacity: 0
+      })),
+      transition(':enter', [
+        animate('500ms 0s ease-in')
+      ]),
+      transition(':leave', [
+        animate('500ms 0s ease-out', style({
+          opacity: 0
+        }))
+      ])
+    ])
+  ],
   styleUrls: ['./admin-cuentas.component.css']
 })
 export class AdminCuentasComponent {
@@ -15,6 +32,8 @@ export class AdminCuentasComponent {
   userAdmin: User[] = [];
   userscommon: User[] = [];
   selectedUser: User | null = null;
+  userType = ['admin', 'user'];
+
 
   constructor(private adminUserService: AdminUserService) {}
 
@@ -36,5 +55,17 @@ export class AdminCuentasComponent {
 
   closeModal(): void {
     this.selectedUser = null;
+  }
+
+  onSelectType(tipo: string): void{
+    if(this.selectedUser != null)
+      {
+        this.selectedUser.usuarioTipo = tipo;
+      }
+  }
+
+  saveUser(): void
+  {
+
   }
 }
