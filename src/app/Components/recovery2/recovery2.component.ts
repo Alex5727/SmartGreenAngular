@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recovery2',
@@ -8,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class Recovery2Component {
 
+  constructor (private router: Router){}
+
+  backToLogin()
+  {
+    this.router.navigate(['login']);
+  }
 }

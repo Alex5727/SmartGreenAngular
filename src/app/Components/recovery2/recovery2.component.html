@@ -1,1 +1,30 @@
-<p>recovery2 works!</p>
+<!DOCTYPE html>
+<html>
+      <header>
+        <style src="src/app/Components/recovery2/recovery2.component.css" ></style>
+
+      </header>
+
+      <body>
+        <div class="container d-flex justify-content-center align-items-center vh-100">
+          <div class="formu text-center">
+            <div class="glass-form p-4">
+              <img src="img/logooff.png" class="logo" alt="SmartGreen" />
+              <h3 class="helpme fw-bold mt-3">Recuperar contraseña</h3>
+              <label class="description text-muted" >Por favor, ingresa una contraseña nueva que sea segura y fácil de recordar.</label>
+              <br><br>
+              <div class="mb-3 mt-3">
+                <label class="texto">Nueva contraseña:</label>
+                <input type="password" placeholder="Nueva contraseña" class="form-control mx-auto w-80">
+              </div>
+              <div class="mb-3 mt-3">
+                <label class="texto">Confirmar contraseña:</label>
+                <input type="password" placeholder="Confirmar contraseña" class="form-control mx-auto w-80">
+              </div>
+              <button id="sendEmail" class="btn mt-3" (click)="backToLogin()">Confirmar</button>
+              <br>
+            </div>
+          </div>
+        </div>
+      </body>
+</html>
