@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { SiderbarComponent } from '../../siderbar/siderbar.component';
 
+
 @Component({
   selector: 'app-admin-cuentas',
   imports: [CommonModule, TableModule],

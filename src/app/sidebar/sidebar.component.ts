@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Routes } from '@angular/router';
 import { routes } from '../app.routes';
+import { PrimeNG } from 'primeng/config';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,6 +11,12 @@ import { routes } from '../app.routes';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
+
+  constructor(private primeNG: PrimeNG) { }
+
+  onInit() {
+    this.primeNG.ripple.set(true);
+  }
   public ListaDeRutas = routes
   .map(route => route ?? [])
   .flat()
