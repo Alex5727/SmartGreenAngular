@@ -79,16 +79,16 @@
             <h5 class="modal-title">Detalles del Usuario</h5>
             <button type="button" class="btn-close" (click)="closeModal()"></button>
           </div>
-          <div class="modal-body">
-            <label for="Nombre" class="col-form-label">Nombre:</label>
-            <input type="text" class="form-control" id="Nombre" [(ngModel)] = "selectedUser.nombre" >
+          <div class="modal-body" *ngIf="usuario">
             <label for="Correo" class="col-form-label">Correo:</label>
-            <input type="email" class="form-control" id="Correo" [(ngModel)]="selectedUser.correo">
+            <input type="email" class="form-control" id="Correo" [(ngModel)]="usuario.correo" disabled>
+            <label for="Nombre" class="col-form-label">Nombre:</label>
+            <input type="text" class="form-control" id="Nombre" [(ngModel)] = "usuario.nombre" >
             <label for="Celular" class="col-form-label">Celular:</label>
-            <input type="text" class="form-control" id="Celular" [(ngModel)]="selectedUser.celular">
+            <input type="text" class="form-control" id="Celular" [(ngModel)]="usuario.celular">
             <div class="dropdown">
               <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                {{selectedUser.usuarioTipo}}
+                {{usuario.usuarioTipo}}
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                 @for (type of userType; track $index) {
@@ -101,7 +101,12 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
-            <button type="button" class="btn btn-success" (click)="saveUser()">Guardar</button>
+            <div *ngIf="isLoading" class="loading-overlay">
+              <div class="loading-spinner"></div>
+              <p>Cargando, por favor espera...</p>
+            </div>
+            
+            <button type="button" class="btn btn-success" (click)="saveUser(usuario!)">Guardar</button>
           </div>
         </div>
       </div>

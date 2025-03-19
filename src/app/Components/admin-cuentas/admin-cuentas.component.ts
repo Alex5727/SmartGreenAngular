@@ -4,6 +4,8 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 import { User } from '../models/user.model';
 import { AdminUserService } from '../services/admin-user.service';
 import { CommonModule } from '@angular/common';
+import { updateUserDTO } from '../models/DTOs/updateUserDTO';
+import { uptime } from 'process';
 
 @Component({
   selector: 'app-admin-cuentas',
@@ -33,6 +35,8 @@ export class AdminCuentasComponent {
   userscommon: User[] = [];
   selectedUser: User | null = null;
   userType = ['admin', 'user'];
+  usuario: User | null = null;
+  isLoading: Boolean = false;
 
 
   constructor(private adminUserService: AdminUserService) {}
@@ -51,6 +55,12 @@ export class AdminCuentasComponent {
 
   openModal(user: User): void {
     this.selectedUser = user;
+    this.usuario = {
+      correo: user.correo,
+      nombre: user.nombre,
+      celular: user.celular,
+      usuarioTipo: user.usuarioTipo
+    } as User;
   }
 
   closeModal(): void {
@@ -58,14 +68,24 @@ export class AdminCuentasComponent {
   }
 
   onSelectType(tipo: string): void{
-    if(this.selectedUser != null)
+    if(this.usuario != null)
       {
-        this.selectedUser.usuarioTipo = tipo;
+        this.usuario.usuarioTipo = tipo;
       }
   }
 
-  saveUser(): void
-  {
-
+  async saveUser(upUser: updateUserDTO): Promise<void> {
+    try {
+      this.isLoading = true; // Mostrar pantalla de carga
+  
+      await this.adminUserService.updateUser(upUser).toPromise(); // Esperar la actualización
+  
+      this.loadUsers(); // Cargar los usuarios actualizados
+      this.closeModal();
+    } catch (error) {
+      console.error("Error al actualizar el usuario", error);
+    } finally {
+      this.isLoading = false; // Ocultar pantalla de carga
+    }
   }
 }
