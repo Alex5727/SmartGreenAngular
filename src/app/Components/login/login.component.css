@@ -1,15 +1,38 @@
-.formu{
-    background-color: #E6E6E6;
-    text-align: center;
-    align-items: center;
-    width: 500px;
-    height: 700px;
-    justify-content: center;
-}
 
-
-.a{
-    justify-content: center;
+ 
+  .formu {
+    background-color: rgba(230, 230, 230, 0.77);
     text-align: center;
-    align-items: center;
+    width: 460px;
+    padding: 20px;
+    border-radius: 20px;
+  }
+  
+  input {
+    border-radius: 20px;
+    height: 150;
+  }
+  
+  .logo {
+    width: 230px;
+    height: auto;
+  }
+  
+  button {
+    background-color: #3d853d;
+    color: white;
+    font-size: 16px;
+    padding: 5px 24px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+
+.texto{
+    display: block;  /* Asegura que la etiqueta esté en una línea separada */
+    margin-bottom: 0.5rem;  /* Agrega espacio debajo de la etiqueta */
+    font-weight: bold;
+    text-align: left;
+    margin-left: 10px;
 }
