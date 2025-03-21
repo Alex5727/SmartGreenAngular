@@ -8,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class RegistrarInvernaderoComponent {
 
+  Back(): void {
+    window.history.back();
+  }
+
 }

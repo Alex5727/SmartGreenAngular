@@ -13,12 +13,12 @@ import { InvernaderosServiceService } from '../../Services/invernaderos-service.
 
 export class MenuInvernaderosComponent {
   invern: Inver[] = [
-    new Inver("icons/planta2.png", "ABV78f", "N/A"),
-    new Inver('icons/planta2.png', 'ABV78f', 'N/A'),
-    new Inver('icons/planta2.png', 'ABV78f', 'N/A'),
-    new Inver('icons/planta2.png', 'ABV78f', 'N/A'),
-    new Inver('icons/planta2.png', 'ABV78f', 'N/A'),
-    new Inver('icons/planta2.png', 'ABV78f', 'N/A'),
+    new Inver("Icons/planta2.png", "ABV78f", "N/A"),
+    new Inver('Icons/planta2.png', 'ABV78f', 'N/A'),
+    new Inver('Icons/planta2.png', 'ABV78f', 'N/A'),
+    new Inver('Icons/planta2.png', 'ABV78f', 'N/A'),
+    new Inver('Icons/planta2.png', 'ABV78f', 'N/A'),
+    new Inver('Icons/planta2.png', 'ABV78f', 'N/A'),
   ];
   
     constructor(private invernaderosServiceService: InvernaderosServiceService) {}
@@ -30,6 +30,8 @@ export class MenuInvernaderosComponent {
       });
     };
 */
+GoToAdd(): void {
+  window.location.href = '/registrar-invernadero';
 
-
+  }
 }

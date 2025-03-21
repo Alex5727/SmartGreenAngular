@@ -16,4 +16,8 @@ export class Recovery1Component {
     this.router.navigate(['/recovery2']);
   }
 
+  Back(): void {
+    window.history.back();
+  }
+
 }

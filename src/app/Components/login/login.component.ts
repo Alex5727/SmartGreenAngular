@@ -13,4 +13,8 @@ constructor (private router: Router){}
 toRecovery1(){
   this.router.navigate(['recovery1']);
 }
+
+ToMenu(): void {
+  window.location.href = '/menu-invernaderos';
+}
 }

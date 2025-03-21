@@ -18,7 +18,7 @@
 
   @for (invern of invern; track invern) {
     <app-carta-planta
-    imageSrc="icons/planta2.png"
+    imageSrc="Icons/planta2.png"
       title={{invern.nombreInvernadero}}
       owner={{invern.owner}}>
     </app-carta-planta>
@@ -28,7 +28,7 @@
 </div>
 </div>
   
-<button class="fixed-button">
-  <img src="icons/agregar.png">
+<button class="btn btn-success floating-btn" (click)="GoToAdd()">
+  <i class="bi bi-plus-lg"></i>
 </button>
 
