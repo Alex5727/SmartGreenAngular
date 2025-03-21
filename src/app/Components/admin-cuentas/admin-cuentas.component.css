@@ -64,3 +64,16 @@ body{
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+.floating-btn {
+  position: fixed;
+  bottom: 20px; /* Distancia desde la parte inferior */
+  right: 20px; /* Distancia desde la parte derecha */
+  z-index: 1000; /* Asegura que el botón esté por encima de otros elementos */
+  padding: 10px 20px;
+  border-radius: 50px;
+  height: 60px;
+  width: 60px;
+  background-color: #545F35;
+  border-color: #545F35;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para un efecto flotante */
+}

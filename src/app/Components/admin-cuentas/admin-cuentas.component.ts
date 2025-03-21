@@ -88,4 +88,7 @@ export class AdminCuentasComponent {
       this.isLoading = false; // Ocultar pantalla de carga
     }
   }
+  navigateToRegister(): void {
+    window.location.href = '/reg-usuario';
+  }
 }
