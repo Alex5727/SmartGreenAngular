@@ -1,0 +1,106 @@
+ /* Contenedor principal para centrar el formulario */
+  .container-custom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Formulario principal */
+  .form-container {
+    background-color: rgba(230, 230, 230, 0.40);
+    text-align: center;
+    width: 460px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilos de la imagen del logo */
+  .logo-custom {
+    width: 230px;
+    height: auto;
+    
+  }
+  
+  /* Estilos para los títulos fuera del cuadro */
+  .title-container {
+    margin-bottom: -100px;
+    margin-top: 50px;
+    color: #545F35;
+  }
+  
+  .title-custom {
+    font-weight: bold;
+    font-size: 40px;
+  }
+  
+  .text-muted-custom {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  /* Estilos para los inputs y selects */
+  .input-custom {
+    border-radius: 20px;
+    height: 40px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    font-size: 16px;
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  /* Botones personalizados */
+  .btn-register {
+    background-color: #5D8832;
+    color: white;
+    font-size: 16px;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 15px;
+    display: block; 
+    margin: 10px auto;
+  }
+  
+  .btn-cancel {
+    background-color: #b5b5b5;
+    color: rgb(93, 93, 93);
+    font-size: 16px;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 15px;
+    display: block;
+    margin: 10px auto; 
+  }
+  
+  /* Estilos de los textos de las etiquetas */
+  .label-custom {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 10px;
+  }
+  
+  .fw-bold {
+    font-weight: bold;
+  }
+  
+  /* Ajuste de márgenes y espaciado */
+  .glass-form {
+    padding: 20px;
+  }
+  
+  .glass-form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  .imagen{
+    width: 300px;
+    height: 300px;
+  }
