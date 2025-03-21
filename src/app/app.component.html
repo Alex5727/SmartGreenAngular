@@ -35,10 +35,10 @@
       </nav> -->
 
       <!-- Contenido principal -->
-      <div>
+      <div *ngIf="!isSidebarHidden" class="col-md-3 col-lg-2">
         <app-sidebar></app-sidebar>
       </div>
-      <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div [ngClass]="{'col-md-9 col-lg-10': !isSidebarHidden, 'col-12': isSidebarHidden}" class="px-md-4">
         <router-outlet></router-outlet>
       </div>    
     </div>
