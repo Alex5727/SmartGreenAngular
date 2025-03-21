@@ -16,11 +16,11 @@
  <div class="d-flex flex-wrap gap-3" style="margin-top:5px;">
       
 
-  @for (invernadero of invernadero; track invernadero) {
+  @for (invern of invern; track invern) {
     <app-carta-planta
-    imageSrc={{invernadero.imageSrc}}
-      title={{invernadero.title}}
-      owner={{invernadero.owner}}>
+    imageSrc="icons/planta2.png"
+      title={{invern.nombreInvernadero}}
+      owner={{invern.owner}}>
     </app-carta-planta>
   }
   </div>

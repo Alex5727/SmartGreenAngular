@@ -1,11 +1,11 @@
 export class Inver {
   
     public imageSrc !: string
-    public title !: string
+    public nombreInvernadero !: string
     public owner !: string
-    constructor(imageSrc:string, title:string, owner:string) {
+    constructor(imageSrc:string, nombreInvernadero:string, owner:string) {
         this.imageSrc = imageSrc;
-        this.title = title;
+        this.nombreInvernadero = nombreInvernadero;
         this.owner = owner;
     }
 }
