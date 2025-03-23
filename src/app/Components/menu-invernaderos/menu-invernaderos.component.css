@@ -12,8 +12,8 @@
 }
 
 .imagen{
-    height: 250px;
-    width: 250px;
+    height: 200px;
+    width: 200px;
     border: 1px solid rgba(113, 113, 113, 0.459);
 
     border-radius: 10px;
@@ -42,8 +42,8 @@
   }
   
   .fixed-button img {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     object-fit: cover;
     border-radius: 50%;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);

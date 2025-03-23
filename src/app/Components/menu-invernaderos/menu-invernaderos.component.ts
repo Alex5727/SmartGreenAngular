@@ -12,24 +12,23 @@ import { InvernaderosServiceService } from '../../Services/invernaderos-service.
 
 
 export class MenuInvernaderosComponent {
-  invern: Inver[] = [
-    new Inver("icons/planta2.png", "ABV78f", "N/A"),
-    new Inver('icons/planta2.png', 'ABV78f', 'N/A'),
-    new Inver('icons/planta2.png', 'ABV78f', 'N/A'),
-    new Inver('icons/planta2.png', 'ABV78f', 'N/A'),
-    new Inver('icons/planta2.png', 'ABV78f', 'N/A'),
-    new Inver('icons/planta2.png', 'ABV78f', 'N/A'),
+  invernaderos: Inver[] = [
   ];
-  
-    constructor(private invernaderosServiceService: InvernaderosServiceService) {}
-  
-/*
-    loadUsers(): void {
-      this.invernaderosServiceService.getInvers().subscribe((data) => {
-        this.invern = data;
-      });
-    };
-*/
 
+  constructor(private invernaderosService: InvernaderosServiceService) {}
 
+  ngOnInit(): void {
+    this.obtenerInvernaderos();
+  }
+
+  obtenerInvernaderos() {
+    this.invernaderosService.getInvers().subscribe({
+      next: (data) => {
+        this.invernaderos = data; 
+      },
+      error: (err) => {
+        console.error('Error al obtener invernaderos:', err);
+      }
+    });
+  }
 }

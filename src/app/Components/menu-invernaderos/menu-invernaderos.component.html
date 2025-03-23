@@ -2,7 +2,7 @@
 <div>
   <div class="container d-flex justify-content-center align-items-center " style="text-align: center;">
     <div class="mb-3" style="margin-top: 30px;">
-      <h2 class="fw-bold" style="color: #2b692a;font-size: 40px;">Invernaderos</h2>
+      <h2 class="fw-bold" style="color: #4a5c4b;font-size: 40px;">Invernaderos</h2>
  
       <form class="d-flex" role="search" style="margin-top: 10px;">
         <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar" style="width: 300px;">
@@ -16,11 +16,11 @@
  <div class="d-flex flex-wrap gap-3" style="margin-top:5px;">
       
 
-  @for (invern of invern; track invern) {
+  @for (invernaderos of invernaderos; track invernaderos) {
     <app-carta-planta
     imageSrc="icons/planta2.png"
-      title={{invern.nombreInvernadero}}
-      owner={{invern.owner}}>
+      title={{invernaderos.idInvernadero}}
+      owner={{invernaderos.usuCorreo}}>
     </app-carta-planta>
   }
   </div>
@@ -29,6 +29,6 @@
 </div>
   
 <button class="fixed-button">
-  <img src="icons/agregar.png">
+  <img src="icons/btnAnadir.png">
 </button>
 
