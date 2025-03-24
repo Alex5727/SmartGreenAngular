@@ -73,7 +73,7 @@
   <!-- Modal de Bootstrap -->
   <div class="modal-backdrop modal-backdrop-custom" *ngIf="selectedUser">
     <div class="modal d-block" tabindex="-1">
-      <div class="modal-dialog">
+      <div class="modal-dialog was-validated">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">Detalles del Usuario</h5>
@@ -83,9 +83,20 @@
             <label for="Correo" class="col-form-label">Correo:</label>
             <input type="email" class="form-control" id="Correo" [(ngModel)]="usuario.correo" disabled>
             <label for="Nombre" class="col-form-label">Nombre:</label>
-            <input type="text" class="form-control" id="Nombre" [(ngModel)] = "usuario.nombre" >
+            <input type="text" class="form-control" id="Nombre" [(ngModel)]="usuario.nombre" required
+                 [ngClass]="{'is-invalid': usuario.nombre.trim() === ''}">
+            <div [ngClass]="{'invalid-feedback': usuario.nombre.trim() === ''}" [ngStyle]="{'display': usuario.nombre.trim() === '' ? 'block' : 'none'}">
+              El Nombre no debe ir vacío.
+            </div>
             <label for="Celular" class="col-form-label">Celular:</label>
-            <input type="text" class="form-control" id="Celular" [(ngModel)]="usuario.celular">
+            <input type="text" class="form-control" id="Celular" [(ngModel)]="usuario.celular" required
+                  [ngClass]="{'is-invalid': usuario.celular.trim() === ''}" oninput="this.value = this.value.replace(/[^0-9]/g, '')" maxlength="10">
+            <div [ngClass]="{'invalid-feedback': usuario.celular.trim() === ''}" [ngStyle]="{'display': usuario.celular.trim() === '' ? 'block': 'none'}">
+              El celular no debe ir vacío.
+            </div>
+            <div [ngClass]="{'invalid-feedback': usuario.celular.trim().length < 10}" [ngStyle]="{'display': usuario.celular.trim().length < 10 ? 'block': 'none'}">
+              El celular debe tener 10 digitos.
+            </div>
             <div class="dropdown">
               <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
                 {{usuario.usuarioTipo}}
@@ -101,13 +112,12 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
+            <!--Carga-->
             <div *ngIf="isLoading" class="loading-overlay">
               <div class="loading-spinner"></div>
               <p>Cargando, por favor espera...</p>
-            </div>
-            
-            
-            <button type="button" class="btn btn-success" (click)="saveUser(usuario!)">Guardar</button>
+            </div>    
+            <button type="submit" class="btn btn-success" (click)="saveUser(usuario!)" [disabled]="(usuario?.nombre || '').trim() === '' || (usuario?.celular || '').trim() === '' || (usuario?.celular || '').trim().length < 10">Guardar</button>
           </div>
         </div>
       </div>
@@ -115,5 +125,28 @@
   </div>
   <button class="btn btn-success floating-btn" (click)="navigateToRegister()">
     <i class="bi bi-plus-lg"></i>
+  </button>
+
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Launch demo modal
   </button>
 </body>
