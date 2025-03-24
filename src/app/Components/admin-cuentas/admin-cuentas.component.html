@@ -127,26 +127,24 @@
     <i class="bi bi-plus-lg"></i>
   </button>
 
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+<!-- Modal -->
+<div class="modal-backdrop modal-backdrop-custom" *ngIf="success">
+  <div class="modal fade show d-block" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true" *ngIf="success">
+    <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+          <h5 class="modal-title" id="modalTitle">Cambios aceptados</h5>
+          <button type="button" class="btn-close" (click)="success = false" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ...
+          El usuario se actualizó correctamente
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-primary" (click)="success = false">Aceptar</button>
         </div>
       </div>
     </div>
   </div>
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-    Launch demo modal
-  </button>
+<!-- Backdrop -->
+</div>
 </body>

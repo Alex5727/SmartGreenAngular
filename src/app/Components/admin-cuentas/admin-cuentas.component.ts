@@ -37,6 +37,7 @@ export class AdminCuentasComponent {
   userType = ['admin', 'user'];
   usuario: User | null = null;
   isLoading: Boolean = false;
+  success: Boolean = false;
 
 
   constructor(private adminUserService: AdminUserService) {}
@@ -48,9 +49,13 @@ export class AdminCuentasComponent {
   loadUsers(): void {
     this.adminUserService.getUsers().subscribe((data) => {
       this.users = data;
-      this.userAdmin = this.users.filter((user) => user.usuarioTipo === 'admin');
-      this.userscommon = this.users.filter((user) => user.usuarioTipo === 'user');
+      this.FiltrarUsuarios();
     });
+  }
+
+  FiltrarUsuarios(): void {
+    this.userAdmin = this.users.filter((user) => user.usuarioTipo === 'admin');
+    this.userscommon = this.users.filter((user) => user.usuarioTipo === 'user');
   }
 
   openModal(user: User): void {
@@ -86,8 +91,10 @@ export class AdminCuentasComponent {
       console.error("Error al actualizar el usuario", error);
     } finally {
       this.isLoading = false; // Ocultar pantalla de carga
+      this.success = true;
     }
   }
+
   navigateToRegister(): void {
     window.location.href = '/reg-usuario';
   }
