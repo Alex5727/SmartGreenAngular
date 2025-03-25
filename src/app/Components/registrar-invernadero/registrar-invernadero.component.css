@@ -12,6 +12,7 @@
     text-align: center;
     width: 460px;
     padding: 20px;
+    height: 719px;
     border-radius: 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   }
@@ -25,9 +26,10 @@
   
   /* Estilos para los títulos fuera del cuadro */
   .title-container {
-    margin-bottom: -100px;
-    margin-top: 50px;
-    color: #545F35;
+    
+    margin-bottom: -75px;
+  margin-top: 40px;
+  color: #545F35;
   }
   
   .title-custom {
@@ -63,6 +65,7 @@
     margin-top: 15px;
     display: block; 
     margin: 10px auto;
+    width: 130px;
   }
   
   .btn-cancel {
@@ -76,6 +79,7 @@
     margin-top: 15px;
     display: block;
     margin: 10px auto; 
+    width: 130px;
   }
   
   /* Estilos de los textos de las etiquetas */
@@ -103,4 +107,5 @@
   .imagen{
     width: 300px;
     height: 300px;
+    border-radius: 20px;
   }

@@ -1,7 +1,7 @@
 .form-container {
   background-color: rgba(230, 230, 230, 0.40); 
   text-align: center;
-  width: 600px; 
+  width: 500px; 
   min-height: 700px; 
   padding: 40px;
   border-radius: 20px;
@@ -35,7 +35,7 @@
 
 /* Imagen del usuario */
 .imagen {
-  width: 130px;
+  width: 126px;
   height: 130px;
 }
 
@@ -49,6 +49,7 @@
   border-radius: 20px;
   cursor: pointer;
   margin-top: 15px;
+  width: 130px;
 }
 
 .btn-cancel {
@@ -62,6 +63,8 @@
   margin-top: 15px;
   display: block;
   margin: 10px auto;
+  width: 130px;
+  
 }
 
 /* Estilos para los títulos */
@@ -78,8 +81,8 @@
 }
 
 .title-container {
-  margin-bottom: 50px;
-  margin-top: 50px;
+  margin-bottom: 5px;
+  margin-top: 40px;
   color: #545F35;
 }
 
