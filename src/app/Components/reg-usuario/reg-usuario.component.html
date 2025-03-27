@@ -1,13 +1,11 @@
 <div class="container vh-100 d-flex justify-content-center align-items-center flex-column">
   <h3 class="fw-bold mb-3" style="color: #545F35;">Registrar Usuario</h3>
-  
   <div class="card p-4 shadow-lg text-center align-items-center" style="max-width: 500px; width: 90%; border-radius: 20px; background: rgba(230, 230, 230, 0.4);">
-    
     <img src="Icons/Usuario.png" alt="imagen de cuenta" class="img-fluid rounded mx-auto d-block mb-3" style="width: 126px; height: 130px;">
-
+    
     <div class="w-100 mb-3 text-start">
       <label class="fw-bold">Tipo:</label>
-      <select id="tipo-usuario" class="form-select w-100">
+      <select id="tipo-usuario" [(ngModel)]="user.tipo" class="form-select w-100">
         <option>Tipo</option>
         <option>Administrador</option>
         <option>Usuario</option>
@@ -16,31 +14,30 @@
 
     <div class="w-100 mb-3 text-start">
       <label class="fw-bold">Nombre:</label>
-      <input type="text" id="nombre-usuario" class="form-control w-100" placeholder="Nombre">
+      <input type="text" id="nombre-usuario" [(ngModel)]="user.nombre" class="form-control w-100" placeholder="Nombre">
     </div>
 
     <div class="w-100 mb-3 text-start">
       <label class="fw-bold">Celular:</label>
-      <input type="text" id="celular-usuario" class="form-control w-100" placeholder="Celular">
+      <input type="text" id="celular-usuario" [(ngModel)]="user.celular" class="form-control w-100" placeholder="Celular">
     </div>
 
     <div class="w-100 mb-3 text-start">
       <label class="fw-bold">Correo:</label>
-      <input type="email" id="correo-usuario" class="form-control w-100" placeholder="Correo">
+      <input type="email" id="correo-usuario" [(ngModel)]="user.correo" class="form-control w-100" placeholder="Correo">
     </div>
 
     <div class="w-100 mb-3 text-start">
       <label class="fw-bold">Contraseña:</label>
-      <input type="password" id="contrasena-usuario" class="form-control w-100" placeholder="Contraseña">
+      <input type="password" id="contrasena-usuario" [(ngModel)]="user.contrasena" class="form-control w-100" placeholder="Contraseña">
     </div>
 
     <div class="w-100 mb-3 text-start">
       <label class="fw-bold">Confirmar contraseña:</label>
-      <input type="password" id="confirmar-usuario" class="form-control w-100" placeholder="Confirmar contraseña">
+      <input type="password" id="confirmar-usuario" [(ngModel)]="user.confirmar" class="form-control w-100" placeholder="Confirmar contraseña">
     </div>
 
-    <button class="btn btn-success w-75 py-2" style="background-color: #5D8832; border-radius: 20px;">Registrar</button>
+    <button class="btn btn-success w-75 py-2" style="background-color: #5D8832; border-radius: 20px;" (click)="registrarUsuario()">Registrar</button>
     <button class="btn btn-secondary w-75 py-2 mt-2" style="border-radius: 20px;">Cancelar</button>
-
   </div>
 </div>
