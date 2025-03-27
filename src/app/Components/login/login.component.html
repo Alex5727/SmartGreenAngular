@@ -1,37 +1,23 @@
-<!doctype html>
-<html lang="en">
-<head>
+<div class="container d-flex justify-content-center align-items-center vh-100">
   
-  <meta charset="utf-8">
-  <title>Login</title>
-</head>
+  <div class="formu text-center">
+    <div class="glass-form p-4">
+      <img src="icons/logo.png" style="height: 180px;width: auto;">
+      <h3 class="fw-bold mt-3">Iniciar Sesión</h3>
+      <label class="text-muted">¡Bienvenido de nuevo! Ingresa tu cuenta para continuar</label>
 
-<body background="icons/Fondo.png" Calss="a">
+      <div class="mb-3 mt-3">
+        <label class="texto">Correo:</label>
+        <input type="email" placeholder="correo" class="form-control mx-auto w-80" [(ngModel)] = "correo" id="correo">
 
-
-  <div class="formu">
-  <img src="icons/logo.jpg" class="logo">
-
-
-    <h2>Iniciar Sesion</h2>
-
-    <label>¡Bienvenido de nuevo! ingresa tu cuenta para continuar</label>
-
-    <div>
-      <h3>Correo:</h3>
-      <input>
-
-      <h3>Contraseña:</h3>
-      <input>
+        <label class="texto" style="margin-top: 20px;">Contraseña:</label>
+        <input type="password"  placeholder="contraseña" class="form-control mx-auto w-80" [(ngModel)] = "password" id="password">
+      </div>
+      <button class="btn btn-primary mt-3" onclick="onSubmit()">Iniciar Sesión</button>
+      <br>
+      <label class="text-muted" style="margin-top: 30px;">¿Olvidaste tu contraseña?</label>
+      <br>
+      <label class="fw-bold">Recupera tu contraseña</label>
     </div>
-
-    <button>Iniciar Sesion</button>
-    <br>
-    <label>¿Olvidaste tu contraseña?</label>
-    <br>
-    <label>Recupera tu contraseña</label>
-
   </div>
-  
-</body>
-</html>
+</div>
