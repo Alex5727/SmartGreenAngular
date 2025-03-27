@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CartaPlantaComponent } from '../carta-planta/carta-planta.component';
 import { Inver } from '../../Clases/inver';
 import { InvernaderosServiceService } from '../../Services/invernaderos-service.service';
+import { AuthServiceService } from '../../Services/auth-service.service';
 
 @Component({
   selector: 'app-menu-invernaderos',
@@ -12,26 +13,36 @@ import { InvernaderosServiceService } from '../../Services/invernaderos-service.
 
 
 export class MenuInvernaderosComponent {
-  invern: Inver[] = [
-    new Inver("Icons/planta2.png", "ABV78f", "N/A"),
-    new Inver('Icons/planta2.png', 'ABV78f', 'N/A'),
-    new Inver('Icons/planta2.png', 'ABV78f', 'N/A'),
-    new Inver('Icons/planta2.png', 'ABV78f', 'N/A'),
-    new Inver('Icons/planta2.png', 'ABV78f', 'N/A'),
-    new Inver('Icons/planta2.png', 'ABV78f', 'N/A'),
+  invernaderos: Inver[] = [
   ];
-  
-    constructor(private invernaderosServiceService: InvernaderosServiceService) {}
-  
-/*
-    loadUsers(): void {
-      this.invernaderosServiceService.getInvers().subscribe((data) => {
-        this.invern = data;
-      });
-    };
-*/
-GoToAdd(): void {
-  window.location.href = '/registrar-invernadero';
 
+   correo !: string; 
+   correo2 !: string | null;
+
+
+  constructor(private invernaderosService: InvernaderosServiceService) {}
+
+  ngOnInit(): void {
+    this.obtenerInvernaderos();
+  }
+
+  // convertir(){
+  //   this.correo2 = this.auth.getEmail();
+  //   if (this.correo2 == null)
+  //   {
+  //     this.correo = this.correo2
+  //   }
+  // }
+
+
+  obtenerInvernaderos() {
+    this.invernaderosService.getInvers().subscribe({
+      next: (data) => {
+        this.invernaderos = data; 
+      },
+      error: (err) => {
+        console.error('Error al obtener invernaderos:', err);
+      }
+    });
   }
 }
