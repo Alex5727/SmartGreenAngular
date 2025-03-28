@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthServiceService } from '../../Services/auth-service.service';
 
 @Component({
   selector: 'app-registrar-invernadero',
@@ -8,6 +9,15 @@ import { Component } from '@angular/core';
 })
 export class RegistrarInvernaderoComponent {
 
+  constructor(private auth: AuthServiceService) {}
+  ngOnInit(): void {
+
+    if (!this.auth.getToken())
+    {
+      window.location.href = '/login';
+    }
+  }
+  
   Back(): void {
     window.history.back();
   }

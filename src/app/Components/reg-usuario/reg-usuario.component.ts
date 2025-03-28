@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthServiceService } from '../../Services/auth-service.service';
 
 @Component({
   selector: 'app-reg-usuario',
@@ -8,6 +9,14 @@ import { Component } from '@angular/core';
 })
 export class RegUsuarioComponent {
 
+  constructor(private auth: AuthServiceService) {}
+  ngOnInit(): void {
+
+    if (!this.auth.getToken())
+    {
+      window.location.href = '/login';
+    }
+  }
 
   Back(): void {
     window.history.back();

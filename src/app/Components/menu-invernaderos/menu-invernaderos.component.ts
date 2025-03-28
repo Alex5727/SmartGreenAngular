@@ -4,6 +4,7 @@ import { Inver } from '../../Clases/inver';
 import { InvernaderosServiceService } from '../../Services/invernaderos-service.service';
 import { AuthServiceService } from '../../Services/auth-service.service';
 
+
 @Component({
   selector: 'app-menu-invernaderos',
   imports: [CartaPlantaComponent],
@@ -22,11 +23,16 @@ export class MenuInvernaderosComponent {
 
 
   constructor(private invernaderosService: InvernaderosServiceService, private auth: AuthServiceService) {}
-
-  ngOnInit(): void {
-
+ngOnInit(): void {
     this.convertir()
-    this.obtenerInvernaderos(this.correo);
+    if (this.auth.getToken())
+    {
+    this.obtenerInvernaderos();
+    }
+    else{
+      window.location.href = '/login';
+      this.Mensaje = "Hubo un error al cargar los invernaderos";
+        }
   }
 
    convertir(){
@@ -37,16 +43,14 @@ export class MenuInvernaderosComponent {
     }
   }
 
-  obtenerInvernaderos(correo: string) {
-    this.invernaderosService.getInvers(correo).subscribe({
+  obtenerInvernaderos() {
+    this.invernaderosService.getInvers().subscribe({
       next: (data) => {
         this.invernaderos = data; 
-
         if(this.invernaderos.length === 0)
-        {
-          this.Mensaje = "No hay ningun invernadero vinculado a esta cuenta";
-        }
-
+          {
+            this.Mensaje = "Hubo un error al cargar los invernaderos";
+          }
       },
       error: (err) => {
         console.error('Error al obtener invernaderos:', err);
@@ -54,5 +58,8 @@ export class MenuInvernaderosComponent {
     });
   }
 
+  RegInv(){
+    window.location.href = '/registrar-invernadero';
+  }
   
 }

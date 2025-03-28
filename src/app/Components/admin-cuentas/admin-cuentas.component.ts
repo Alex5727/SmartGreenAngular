@@ -6,6 +6,7 @@ import { AdminUserService } from '../services/admin-user.service';
 import { CommonModule } from '@angular/common';
 import { updateUserDTO } from '../models/DTOs/updateUserDTO';
 import { uptime } from 'process';
+import { AuthServiceService } from '../../Services/auth-service.service';
 
 @Component({
   selector: 'app-admin-cuentas',
@@ -40,9 +41,14 @@ export class AdminCuentasComponent {
   success: Boolean = false;
 
 
-  constructor(private adminUserService: AdminUserService) {}
+  constructor(private adminUserService: AdminUserService, private auth: AuthServiceService) {}
 
   ngOnInit(): void {
+    if (!this.auth.getToken())
+      {
+        window.location.href = '/login';
+      }
+
     this.loadUsers();
   }
 
