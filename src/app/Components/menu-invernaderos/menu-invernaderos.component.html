@@ -2,7 +2,7 @@
 <div>
   <div class="container d-flex justify-content-center align-items-center " style="text-align: center;">
     <div class="mb-3" style="margin-top: 30px;">
-      <h2 class="fw-bold" style="color: #2b692a;font-size: 40px;">Invernaderos</h2>
+      <h2 class="fw-bold" style="color: #4a5c4b;font-size: 40px;">Invernaderos</h2>
  
       <form class="d-flex" role="search" style="margin-top: 10px;">
         <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar" style="width: 300px;">
@@ -11,10 +11,14 @@
   </div>
  </div>
 
+
+
  <div style="justify-content: center; justify-items: center;margin-bottom: 50px;margin-top: 15px;">
  <div class="b">
+  <label style="text-align: center;color: red;">{{Mensaje}}</label>
  <div class="d-flex flex-wrap gap-3" style="margin-top:5px;">
       
+
 
   @for (invernaderos of invernaderos; track invernaderos) {
     <app-carta-planta
@@ -29,6 +33,6 @@
 </div>
   
 <button class="fixed-button">
-  <img src="icons/btnAnadir.png">
+  <img src="Icons/btnAnadir.png">
 </button>
 

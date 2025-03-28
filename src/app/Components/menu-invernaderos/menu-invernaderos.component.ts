@@ -17,32 +17,42 @@ export class MenuInvernaderosComponent {
   ];
 
    correo !: string; 
+   Mensaje !: string; 
    correo2 !: string | null;
 
 
-  constructor(private invernaderosService: InvernaderosServiceService) {}
+  constructor(private invernaderosService: InvernaderosServiceService, private auth: AuthServiceService) {}
 
   ngOnInit(): void {
-    this.obtenerInvernaderos();
+
+    this.convertir()
+    this.obtenerInvernaderos(this.correo);
   }
 
-  // convertir(){
-  //   this.correo2 = this.auth.getEmail();
-  //   if (this.correo2 == null)
-  //   {
-  //     this.correo = this.correo2
-  //   }
-  // }
+   convertir(){
+     this.correo2 = this.auth.getEmail();
+     if (this.correo2 != null)
+     {
+      this.correo = this.correo2
+    }
+  }
 
-
-  obtenerInvernaderos() {
-    this.invernaderosService.getInvers().subscribe({
+  obtenerInvernaderos(correo: string) {
+    this.invernaderosService.getInvers(correo).subscribe({
       next: (data) => {
         this.invernaderos = data; 
+
+        if(this.invernaderos.length === 0)
+        {
+          this.Mensaje = "No hay ningun invernadero vinculado a esta cuenta";
+        }
+
       },
       error: (err) => {
         console.error('Error al obtener invernaderos:', err);
       }
     });
   }
+
+  
 }

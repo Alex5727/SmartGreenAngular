@@ -1,39 +1,33 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from 'express';
+import { Router } from '@angular/router'; // Corregido
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthServiceService {
 
-  constructor( private http: HttpClient,
-    private router: Router,
-    ) { }
+  constructor( private http: HttpClient, private router: Router ) { }
 
-    private tokenKey = 'authToken';
-    private CorreoKey = '';
+  private tokenKey = 'authToken';
+  private correoKey = 'authEmail';
 
-  saveToken(token: string): Promise<void> {
-    return new Promise((resolve, reject) => {
-      try {
-        localStorage.setItem(this.tokenKey, token);
-        resolve();
-      } catch (error) {
-        reject(error);
-      }
-    });
+  async saveToken(token: string): Promise<void> {
+    try {
+      localStorage.setItem(this.tokenKey, token);
+    } catch (error) {
+      console.error('Error guardando el token:', error);
+      throw error;
+    }
   }
 
-  saveCorreo(correo: string): Promise<void> {
-    return new Promise((resolve, reject) => {
-      try {
-        localStorage.setItem(this.CorreoKey, correo);
-        resolve();
-      } catch (error) {
-        reject(error);
-      }
-    });
+  async saveCorreo(correo: string): Promise<void> {
+    try {
+      localStorage.setItem(this.correoKey, correo);
+    } catch (error) {
+      console.error('Error guardando el correo:', error);
+      throw error;
+    }
   }
 
   getToken(): string | null {
@@ -41,12 +35,12 @@ export class AuthServiceService {
   }
 
   getEmail(): string | null {
-    return localStorage.getItem(this.CorreoKey);
+    return localStorage.getItem(this.correoKey); // Clave corregida
   }
 
   logout(): void {
     localStorage.removeItem(this.tokenKey); 
-    localStorage.removeItem(this.CorreoKey);
-
+    localStorage.removeItem(this.correoKey); // Clave corregida
+    this.router.navigate(['/login']); // Opcional: Redirigir a login tras cerrar sesión
   }
 }

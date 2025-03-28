@@ -24,8 +24,8 @@
 
         <li class="nav-item goOut">
           <hr>
-          <a [routerLink]="['/login']" class="nav-link">
-            <img class="icons" src="Icons/salida.png">Cerrar sesión</a>
+          <a (click)="cerrar()" type="button">
+            <img class="icons" src="Icons/salida.png" >Cerrar sesión</a>
         </li>
       </ul>
     </div>

@@ -1,32 +1,46 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AyudaService } from '../../ayuda.service';
-import { AuthServiceService } from '../../Services/auth-service.service';
+import { LoginServiceService } from '../../Services/login-service.service';
+import { FormsModule } from '@angular/forms'; 
 
 
 @Component({
   selector: 'app-login',
-  imports: [],
+  imports: [ FormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
 constructor (private router: Router,
-private inv: AyudaService,
+public loginSer: LoginServiceService,
 
 ){}
 
-correo !: string;
-password !: string;
+correo : string = '';
+password : string = '';
+msj !: string;
 
-toRecovery1(){
+ngOnInit(): void {
+
+  this.msj = this.loginSer.msgUser;
+}
+
+
+toRecovery1(): void{
   this.router.navigate(['recovery1']);
 }
 
 login(){
+
+  this.loginSer.login(this.correo, this.password);
+
 }
 
 ToMenu(): void {
   window.location.href = '/menu-invernaderos';
 }
+
+
+
+
 }

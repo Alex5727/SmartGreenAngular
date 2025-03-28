@@ -7,14 +7,15 @@ import { Inver } from '../Clases/inver';
   providedIn: 'root'
 })
 export class InvernaderosServiceService {
-  private url = 'https://934vm7pw-5062.usw3.devtunnels.ms/api/Invernadero/FindByEmail/';
+  private url = 'https://h387mpbd-5062.usw3.devtunnels.ms/api/Invernadero/FindByEmail/';
   private correo = '7loquesea@aa.com';
 
 
   constructor(private http: HttpClient) { }
 
-  getInvers(): Observable<Inver[]> {
-    return this.http.get<Inver[]>(this.url+this.correo);
-    
+  getInvers(correo: string): Observable<Inver[]> {
+    return this.http.get<Inver[]>(this.url+correo);
   }
+
+  
 }

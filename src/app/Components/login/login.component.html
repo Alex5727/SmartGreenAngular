@@ -7,15 +7,15 @@
 
       <div class="mb-3 mt-3">
         <label class="texto">Correo:</label>
-        <input type="email" placeholder="correo" class="form-control mx-auto w-80" id="correo">
+        <input type="email" placeholder="correo" class="form-control mx-auto w-80" [(ngModel)]="correo">
 
         <label class="texto" style="margin-top: 20px;">Contraseña:</label>
-        <input type="password"  placeholder="contraseña" class="form-control mx-auto w-80" id="password">
+        <input type="password"  placeholder="contraseña" class="form-control mx-auto w-80" [(ngModel)]="password">
       </div>
 
-      <button class="btn btn-primary mt-3" >Iniciar Sesión</button>
-      <br>
-      <label class="text-muted" style="margin-top: 30px;">¿Olvidaste tu contraseña?</label>
+      <button class="btn btn-primary mt-3" (click)="login()">Iniciar Sesión</button>
+      <p style="color: red;">{{loginSer.msgUser}}</p>
+      <label class="text-muted" style="margin-top:-20px;">¿Olvidaste tu contraseña?</label>
       <br>
       <a href="/recovery1" class="custom-link"><label class="fw-bold">Recupera tu contraseña</label></a>
     </div>
