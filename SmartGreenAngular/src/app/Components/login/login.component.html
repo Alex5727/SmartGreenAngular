@@ -1,0 +1,23 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="formu text-center">
+    <div class="glass-form p-4">
+      <img src="Icons/logo.png" style="height: 180px;width: auto;">
+      <h3 class="fw-bold mt-3">Iniciar Sesión</h3>
+      <label class="text-muted">¡Bienvenido de nuevo! Ingresa tu cuenta para continuar</label>
+
+      <div class="mb-3 mt-3">
+        <label class="texto">Correo:</label>
+        <input type="email" placeholder="correo" class="form-control mx-auto w-80" [(ngModel)]="correo">
+
+        <label class="texto" style="margin-top: 20px;">Contraseña:</label>
+        <input type="password"  placeholder="contraseña" class="form-control mx-auto w-80" [(ngModel)]="password">
+      </div>
+
+      <button class="btn btn-primary mt-3" (click)="login()">Iniciar Sesión</button>
+      <p style="color: red;">{{loginSer.msgUser}}</p>
+      <label class="text-muted" style="margin-top:-20px;">¿Olvidaste tu contraseña?</label>
+      <br>
+      <a href="/recovery1" class="custom-link"><label class="fw-bold">Recupera tu contraseña</label></a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+  <main class="container-fluid">
+    <div class="row">
+      <!-- Menú lateral -->
+      <!-- <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar vh-100 position-fixed">
+        <div class="position-sticky">
+          <h2 class="text-center py-3">SmartGreen</h2>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a [routerLink]="['/login']" class="nav-link">Login</a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['/menu-invernaderos']" class="nav-link">MenuInvernaderos</a>
+            </li>
+            <li class="nav-item">
+                <a [routerLink]="['/registrar-invernadero']" class="nav-link">Registrar Invernadero</a>
+            </li>
+            <li class="nav-item">
+                <a [routerLink]="['/reg-usuario']" class="nav-link">Registrar usuarios</a>
+            </li>
+            <li class="nav-item">
+                <a [routerLink]="['/recovery1']" class="nav-link">Recovery1</a>
+              </li>
+              <li class="nav-item">
+                <a [routerLink]="['/recovery2']" class="nav-link">Recovery2</a>
+              </li>
+              <li class="nav-item">
+                <a [routerLink]="['/estadisticas']" class="nav-link">estadisticas</a>
+              </li>
+              <li class="nav-item">
+                <a [routerLink]="['/admin-cuentas']" class="nav-link">admin-cuentas</a>
+              </li>
+          </ul>
+        </div>
+      </nav> -->
+
+      <!-- Contenido principal -->
+      <div *ngIf="!isSidebarHidden" class="col-md-3 col-lg-2">
+        <app-sidebar></app-sidebar>
+      </div>
+      <div [ngClass]="{'col-md-9 col-lg-10': !isSidebarHidden, 'col-12': isSidebarHidden}" class="px-md-4">
+        <router-outlet></router-outlet>
+      </div>    
+    </div>
+  </main>
