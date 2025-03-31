@@ -1,4 +1,3 @@
-<!-- Formulario de Registro de Invernadero -->
 <div class="container">
   <div class="title-container text-center" style="padding-bottom: 20px;">
     <h3 class="title-custom">Registrar Invernadero</h3>
@@ -8,16 +7,18 @@
       <img class="img-fluid" src="Icons/Inv.png" alt="imagen de invernadero" style="height: 200px; width: 200px;">
       <div class="form-group mt-3">
         <label class="label-custom">ID:</label>
-        <input type="text" id="invernadero-id" placeholder="ID" class="input-custom mx-auto w-80">
+        <input type="text" [(ngModel)]="idInvernadero" placeholder="ID" class="input-custom mx-auto w-80">
 
         <label class="label-custom" style="margin-top: 20px;">Tipo:</label>
-        <select id="tipo-invernadero" class="input-custom mx-auto w-80">
-          <option>Tipo</option>
-          <option>Pequeño</option>
-          <option>Mediano</option>
-          <option>Grande</option>
+        <select [(ngModel)]="tipoInvernadero" class="input-custom mx-auto w-80">
+          <option value="">Seleccionar tipo</option>
+          <option value="1">Pequeño</option>
+          <option value="2">Mediano</option>
+          <option value="3">Grande</option>
         </select>
       </div>
+
+      <p *ngIf="mensajeError" class="text-danger">{{ mensajeError }}</p>
 
       <button class="btn-register mt-3" (click)="registerInvernadero()">Registrar</button>
       <button class="btn-cancel mt-4" (click)="Back()">Cancelar</button>

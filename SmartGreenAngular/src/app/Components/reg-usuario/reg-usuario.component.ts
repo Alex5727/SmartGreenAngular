@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthServiceService } from '../../Services/auth-service.service';
+import { UsuarioRegistrarService } from '../../Services/usuario-registrar.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -39,7 +40,7 @@ export class RegUsuarioComponent {
     }
 
     // Llamar al servicio para registrar el usuario
-    this.http.post('https://5r1v7n94-5062.usw3.devtunnels.ms/api/User/Register', usuario)
+    this.http.post('https://localhost:44396/api/User/Register', usuario)
       .subscribe({
         next: (response) => {
           alert('Usuario registrado con éxito.');
