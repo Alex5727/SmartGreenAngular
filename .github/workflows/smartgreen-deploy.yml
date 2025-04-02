@@ -1,6 +1,6 @@
 name: SmartGreen deploy
 on: [push]
-  jobs:
+jobs:
     Explore-GitHub-Actions:
       runs-on: ubuntu-latest
       steps:
