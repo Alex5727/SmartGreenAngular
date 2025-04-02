@@ -11,14 +11,14 @@
 
         <label class="label-custom" style="margin-top: 20px;">Tipo:</label>
         <select [(ngModel)]="tipoInvernadero" class="input-custom mx-auto w-80">
-          <option value="">Seleccionar tipo</option>
-          <option value="1">Pequeño</option>
-          <option value="2">Mediano</option>
-          <option value="3">Grande</option>
+          <option [ngValue]="null">Seleccionar tipo</option>
+          <option [ngValue]="1">1</option>
+          <option [ngValue]="2">2</option>
+          <option [ngValue]="3">3</option>
         </select>
       </div>
 
-      <p *ngIf="mensajeError" class="text-danger">{{ mensajeError }}</p>
+      <p *ngIf="mensajeError" class="text-danger mt-2">{{ mensajeError }}</p>
 
       <button class="btn-register mt-3" (click)="registerInvernadero()">Registrar</button>
       <button class="btn-cancel mt-4" (click)="Back()">Cancelar</button>

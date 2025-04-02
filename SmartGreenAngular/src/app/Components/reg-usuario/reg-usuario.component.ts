@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthServiceService } from '../../Services/auth-service.service';
-import { UsuarioRegistrarService } from '../../Services/usuario-registrar.service';
-import { HttpClient } from '@angular/common/http';
+import { UsuarioRegistrarService } from '../../Services/usuario-registrar.service'; // Importar servicio
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,7 +10,11 @@ import { Router } from '@angular/router';
 })
 export class RegUsuarioComponent {
 
-  constructor(private auth: AuthServiceService, private http: HttpClient, private router: Router) {}
+  constructor(
+    private auth: AuthServiceService,
+    private usuarioRegistrarService: UsuarioRegistrarService, // Inyectar el servicio
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     if (!this.auth.getToken()) {
@@ -25,31 +28,37 @@ export class RegUsuarioComponent {
 
   registerUser(): void {
     const usuario = {
-      tipo: (document.getElementById('tipo-usuario') as HTMLSelectElement).value,
+      usuarioTipo: (document.getElementById('tipo-usuario') as HTMLSelectElement).value,
       nombre: (document.getElementById('nombre-usuario') as HTMLInputElement).value,
       celular: (document.getElementById('celular-usuario') as HTMLInputElement).value,
       correo: (document.getElementById('correo-usuario') as HTMLInputElement).value,
-      contrasena: (document.getElementById('contrasena-usuario') as HTMLInputElement).value,
+      password: (document.getElementById('contrasena-usuario') as HTMLInputElement).value,
       confirmarContrasena: (document.getElementById('confirmar-usuario') as HTMLInputElement).value
     };
 
+    // Validar los campos requeridos
+    if (!usuario.usuarioTipo || !usuario.nombre || !usuario.celular || !usuario.correo || !usuario.password || !usuario.confirmarContrasena) {
+      alert('Todos los campos son obligatorios.');
+      return;
+    }
+
     // Validar las contraseñas coinciden
-    if (usuario.contrasena !== usuario.confirmarContrasena) {
+    if (usuario.password !== usuario.confirmarContrasena) {
       alert('Las contraseñas no coinciden.');
       return;
     }
 
-    // Llamar al servicio para registrar el usuario
-    this.http.post('https://localhost:44396/api/User/Register', usuario)
-      .subscribe({
-        next: (response) => {
-          alert('Usuario registrado con éxito.');
-          this.router.navigate(['/login']);
-        },
-        error: (err) => {
-          console.error('Error al registrar el usuario:', err);
-          alert('Hubo un error al registrar el usuario.');
-        }
-      });
+
+    // Usar el servicio para registrar el usuario
+    this.usuarioRegistrarService.registerUser(usuario).subscribe({
+      next: (response) => {
+        alert('Usuario registrado con éxito.');
+        this.router.navigate(['/login']);
+      },
+      error: (err) => {
+        console.error('Error al registrar el usuario:', err);
+        alert('Hubo un error al registrar el usuario.');
+      }
+    });
   }
 }
