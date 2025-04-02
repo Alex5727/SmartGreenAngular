@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { User } from '../models/user.model';
 import { updateUserDTO } from '../models/DTOs/updateUserDTO';
 
@@ -15,10 +15,18 @@ export class AdminUserService {
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.url+this.findall);
+    return this.http.get<User[]>(this.url+this.findall).pipe(
+      catchError(error => {
+        return throwError(() => error)
+      })
+    );
   }
 
   updateUser(upUser: updateUserDTO): Observable<User>{
-    return this.http.patch<User>(this.url+this.update, upUser);
+    return this.http.patch<User>(this.url+this.update, upUser).pipe(
+      catchError(error => {
+        return throwError(() => error)
+      })
+    );;
   }
 }

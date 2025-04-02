@@ -7,6 +7,10 @@ import { CommonModule } from '@angular/common';
 import { updateUserDTO } from '../models/DTOs/updateUserDTO';
 import { uptime } from 'process';
 import { AuthServiceService } from '../../Services/auth-service.service';
+import { lastValueFrom } from 'rxjs';
+import { mergeMap, throwError } from 'rxjs';
+// O la importación combinada si ya tienes otros operadores
+
 
 @Component({
   selector: 'app-admin-cuentas',
@@ -39,6 +43,8 @@ export class AdminCuentasComponent {
   usuario: User | null = null;
   isLoading: Boolean = false;
   success: Boolean = false;
+  error: Boolean = false;
+  errorMessage: string = '';
 
 
   constructor(private adminUserService: AdminUserService, private auth: AuthServiceService) {}
@@ -87,17 +93,27 @@ export class AdminCuentasComponent {
 
   async saveUser(upUser: updateUserDTO): Promise<void> {
     try {
-      this.isLoading = true; // Mostrar pantalla de carga
-  
-      await this.adminUserService.updateUser(upUser).toPromise(); // Esperar la actualización
-  
-      this.loadUsers(); // Cargar los usuarios actualizados
+      this.isLoading = true;
+      
+      // REMOVER el mergeMap que fuerza el error durante operación normal
+      await lastValueFrom(this.adminUserService.updateUser(upUser));
+      
+      this.loadUsers();
       this.closeModal();
-    } catch (error) {
-      console.error("Error al actualizar el usuario", error);
-    } finally {
-      this.isLoading = false; // Ocultar pantalla de carga
       this.success = true;
+      this.isLoading = false;
+    } catch (er) {
+      this.isLoading = false;
+      this.closeModal();
+      if (er instanceof Error) {
+        this.errorMessage = `Error: ${er.message}`;
+      } else if (typeof er === 'string') {
+        this.errorMessage = er;
+      } else {
+        this.errorMessage = 'Error desconocido durante la actualización.';
+      }
+      this.error = true;
+      console.error('Error capturado:', er);
     }
   }
 
