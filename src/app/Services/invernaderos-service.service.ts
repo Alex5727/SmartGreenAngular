@@ -7,7 +7,7 @@ import { Inver } from '../Clases/inver';
   providedIn: 'root'
 })
 export class InvernaderosServiceService {
-  private url = 'https://6p775mql-5062.usw3.devtunnels.ms/api/Invernadero/FindAll';
+  private url = 'https://934vm7pw-5062.usw3.devtunnels.ms/api/Invernadero/FindAll';
   private correo = '7loquesea@aa.com';
 
 
