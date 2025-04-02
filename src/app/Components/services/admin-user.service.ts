@@ -8,7 +8,7 @@ import { updateUserDTO } from '../models/DTOs/updateUserDTO';
   providedIn: 'root'
 })
 export class AdminUserService {
-  private url = 'http://localhost:5062/api/User/';
+  private url = 'https://6p775mql-5062.usw3.devtunnels.ms/api/User/';
   private findall = 'FindAll';
   private update = 'UpdateUser';
 

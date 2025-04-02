@@ -26,7 +26,7 @@ export class LoginServiceService {
         return;
       }
   
-      const url = 'https://5r1v7n94-5062.usw3.devtunnels.ms/api/User/Login';
+      const url = 'https://6p775mql-5062.usw3.devtunnels.ms/api/User/Login';
       const requestLogin = { Email: email, Password: password };
   
       try {
