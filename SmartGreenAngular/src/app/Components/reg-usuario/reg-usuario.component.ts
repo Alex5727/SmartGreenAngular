@@ -35,29 +35,41 @@ export class RegUsuarioComponent {
       password: (document.getElementById('contrasena-usuario') as HTMLInputElement).value,
       confirmarContrasena: (document.getElementById('confirmar-usuario') as HTMLInputElement).value
     };
-
-    // Validar los campos requeridos
+  
     if (!usuario.usuarioTipo || !usuario.nombre || !usuario.celular || !usuario.correo || !usuario.password || !usuario.confirmarContrasena) {
       alert('Todos los campos son obligatorios.');
       return;
     }
-
-    // Validar las contraseñas coinciden
+  
     if (usuario.password !== usuario.confirmarContrasena) {
       alert('Las contraseñas no coinciden.');
       return;
     }
-
-
-    // Usar el servicio para registrar el usuario
+  
+    this.usuarioRegistrarService.verificarCorreo(usuario.correo).subscribe({
+      next: (correoExiste) => {
+        if (correoExiste) {
+          alert('El correo ingresado ya está registrado.');
+        } else {
+          this.enviarRegistro(usuario);
+        }
+      },
+      error: (err) => {
+        console.warn('No se pudo verificar el correo, pero intentaremos registrar de todas formas.', err);
+        this.enviarRegistro(usuario);
+      }
+    });
+  }
+  
+  private enviarRegistro(usuario: any): void {
     this.usuarioRegistrarService.registerUser(usuario).subscribe({
-      next: (response) => {
+      next: () => {
         alert('Usuario registrado con éxito.');
-        this.router.navigate(['/login']);
+        this.router.navigate(['/menu-invernaderos']);
       },
       error: (err) => {
         console.error('Error al registrar el usuario:', err);
-        alert('Hubo un error al registrar el usuario.');
+        alert('Error al registrar el usuario: ' + (err.error?.message || 'Inténtelo más tarde.'));
       }
     });
   }
