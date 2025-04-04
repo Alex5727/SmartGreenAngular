@@ -9,6 +9,12 @@ import { provideHttpClient } from '@angular/common/http';
 import { LoginServiceService } from './app/Services/login-service.service';
 import { InvernaderosServiceService } from './app/Services/invernaderos-service.service';
 import { AuthServiceService } from './app/Services/auth-service.service';
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 
-bootstrapApplication(AppComponent, {providers: [appRouterProviders, provideHttpClient(),  importProvidersFrom(BrowserAnimationsModule, RouterModule)]})
+bootstrapApplication(AppComponent, {providers: [appRouterProviders, 
+  provideHttpClient(),  
+  importProvidersFrom(BrowserAnimationsModule, RouterModule),
+  provideCharts(
+    withDefaultRegisterables()
+  )]})
   .catch((err) => console.error(err));

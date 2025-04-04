@@ -1,0 +1,21 @@
+<div class="modal fade show d-block" tabindex="-1" role="dialog" *ngIf="visible" style="background-color: rgba(0,0,0,0.5);">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Estadísticas del Invernadero</h5>
+          <button type="button" class="btn-close" (click)="closeModal()"></button>
+        </div>
+        <div class="modal-body">
+          <canvas baseChart
+            [data]="chartData" 
+            [options]="chartOptions"
+            [type]="'line'"
+          >
+          </canvas>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>

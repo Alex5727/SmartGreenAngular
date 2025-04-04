@@ -3,11 +3,12 @@ import { CartaPlantaComponent } from '../carta-planta/carta-planta.component';
 import { Inver } from '../../Clases/inver';
 import { InvernaderosServiceService } from '../../Services/invernaderos-service.service';
 import { AuthServiceService } from '../../Services/auth-service.service';
+import { StadisticsComponent } from '../stadistics/stadistics.component';
 
 
 @Component({
   selector: 'app-menu-invernaderos',
-  imports: [CartaPlantaComponent],
+  imports: [CartaPlantaComponent,StadisticsComponent],
   templateUrl: './menu-invernaderos.component.html',
   styleUrl: './menu-invernaderos.component.css'
 })
