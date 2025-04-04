@@ -39,14 +39,16 @@ export class RegistrarInvernaderoComponent {
       this.mensajeError = 'Por favor, ingrese un ID válido y seleccione un tipo de invernadero.';
       return;
     }
-
+  
     this.mensajeError = '';
-
+  
+    // Verificamos si ya existe el invernadero
     this.invernaderoService.verificarInvernadero(this.idInvernadero).subscribe({
       next: (existe) => {
         if (existe) {
           this.mensajeError = 'Este invernadero ya está registrado.';
         } else {
+          // Procedemos a registrarlo
           this.invernaderoService.registrarInvernadero(this.idInvernadero, this.tipoInvernadero!).subscribe({
             next: () => {
               alert('Invernadero registrado con éxito.');
@@ -54,14 +56,14 @@ export class RegistrarInvernaderoComponent {
             },
             error: (err) => {
               console.error('Error al registrar el invernadero:', err);
-              this.mensajeError = 'Hubo un error al registrar el invernadero.';
+              this.mensajeError = err.message || 'Error desconocido al registrar.';
             }
           });
         }
       },
       error: (err) => {
         console.error('Error al verificar el invernadero:', err);
-        this.mensajeError = 'No se pudo verificar el invernadero. Intente más tarde.';
+        this.mensajeError = err.message || 'No se pudo verificar el invernadero.';
       }
     });
   }
