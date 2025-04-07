@@ -1,1 +1,5 @@
-<p>estadisticas works!</p>
+<app-stadistics
+  *ngFor="let item of stats"
+  [idInvernadero]="item.idInvernadero"
+  [stats]="item.stats">
+</app-stadistics>

@@ -7,7 +7,7 @@ import { StatsInvernaderos } from '../models/StatsInvernaderos.model';
   providedIn: 'root'
 })
 export class StatsService {
-  private url = 'https://6p775mql-5062.usw3.devtunnels.ms/api/DailyStat/';
+  private url = 'https://5r1v7n94-5062.usw3.devtunnels.ms/api/DailyStat/';
   private GetAllStats = 'GetAllStats';
 
   constructor(private http: HttpClient) { }
