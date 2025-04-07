@@ -5,13 +5,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4  # Versión actualizada 
+        uses: actions/checkout@v4        
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'  # Versión LTS más reciente
-          cache: 'npm'
+          node-version: '20'
+          cache: 'npm'     
       - name: Install dependencies
-        run: npm ci
-      - name: Build Angular app
-        run: npm run build -- --configuration=production
+        run: npm ci    
+      - name: Build Angular app (development mode for better errors)
+        run: npm run build -- --configuration=development --verbose
