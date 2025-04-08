@@ -1,1 +1,49 @@
-<p>estadisticas works!</p>
+<h2 class="text-center mb-4 pt-5 titleSM">Estadísticas de los Invernaderos</h2>
+<div class="row justify-content-center" style="margin-bottom: 15px; margin-top: 15px;">
+  <div class="col-10 col-md-8 col-lg-6">
+    <div class="card" style="background-color: rgba(255, 255, 255, 0.4);">
+      <div class="card-body">
+        <div class="input-group mb-0">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Buscar por ID de invernadero..."
+            [(ngModel)]="searchTerm"
+            (ngModelChange)="onInputChange()"
+            (keydown)="onKeyDown($event)"
+            (focus)="onFocus()"
+            (blur)="onBlur()"
+            aria-label="Buscar"
+          />
+          <button class="btn btn-outline-secondary" type="button" (click)="filtrarEstadisticas()">
+            <i class="bi bi-search"></i>
+          </button>
+           <!-- Lista de sugerencias -->
+          <ul
+            *ngIf="showSuggestions && filteredSuggestions.length > 0"
+            class="suggestions-list list-group"
+            style="position: absolute; top: 100%; left: 0; right: 0; z-index: 999;"
+            >
+            <li
+              class="list-group-item list-group-item-action"
+              *ngFor="let suggestion of filteredSuggestions; let i = index"
+              [class.active]="i === selectedSuggestionIndex"
+              (click)="selectSuggestion(suggestion)"
+            >
+              {{ suggestion }}
+            </li>
+        </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-stadistics
+  *ngFor="let item of estadisticasFiltradas"
+  [idInvernadero]="item.idInvernadero"
+  [stats]="item.stats">
+</app-stadistics>
+
+<div class="text-center mt-4" *ngIf="estadisticasFiltradas.length === 0 && searchTerm.trim() !== ''">
+  <h3 class="text-muted">😕 No se encontraron invernaderos con ese ID</h3>
+</div>

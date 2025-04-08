@@ -1,13 +1,17 @@
-name: SmartGreen deploy
+name: SmartGreen CI/CD
 on: [push]
 jobs:
-    Explore-GitHub-Actions:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v2
-        - uses: actions/setup-node@v2
-        - name: Install packages
-          run: npm ci
-        - name: Bundle
-          run: npm run build
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'     
+      - name: Install dependencies
+        run: npm ci    
+      - name: Build Angular app (development mode for better errors)
+        run: npm run build -- --configuration=development --verbose

@@ -1,0 +1,9 @@
+h2.titleSM
+{
+    color: #444A36;
+}
+
+.suggestions-list .active {
+    background-color: #0d6efd;
+    color: white;
+}
