@@ -2,18 +2,48 @@
   <h2 class="text-center mb-4 pt-5 titleSM">Administracion de Cuentas</h2>
   <div class="row justify-content-center">
     <div class="col-10 col-md-8 col-lg-6">
-      <div class="card" style="background-color: rgba(255, 255, 255, 0.4);">
+      <div class="card" style="background-color: rgba(255, 255, 255, 0.4); position: relative;">
         <div class="card-body">
-          <!-- Input de búsqueda con botón -->
           <div class="input-group mb-0">
-            <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar">
-            <button class="btn btn-outline-secondary" type="button" id="button-search">
-              <i class="bi bi-search"></i> <!-- Icono de búsqueda de Bootstrap Icons -->
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="searchTerm"
+              (keydown.enter)="filterUsersBySearch()"
+              (ngModelChange)="onInputChange()"
+              (focus)="onFocus()"
+              (blur)="onBlur()"
+              (keydown)="onKeyDown($event)"
+              placeholder="Buscar usuarios por nombre, correo o celular..."
+              aria-label="Buscar"
+            />
+          <div>
+            <button class="btn btn-outline-secondary" type="button" (click)="filterUsersBySearch()">
+              <i class="bi bi-search"></i>
             </button>
+          </div>  
+            <!-- Lista de sugerencias -->
+            <ul
+              *ngIf="showSuggestions && filteredSuggestions.length > 0"
+              class="suggestions-list list-group"
+              style="position: absolute; top: 100%; left: 0; right: 0; z-index: 999;"
+            >
+              <li
+                class="list-group-item list-group-item-action"
+                *ngFor="let suggestion of filteredSuggestions; let i = index"
+                [class.active]="i === selectedSuggestionIndex"
+                (click)="selectSuggestion(suggestion)"
+              >
+                {{ suggestion }}
+              </li>
+            </ul>
           </div>
-        </div>    
+        </div>
       </div>
     </div>
+  </div>
+  <div class="text-center mt-4" *ngIf="userAdmin.length === 0 && userscommon.length === 0 && searchTerm.trim() !== ''">
+    <h3 class="text-muted">😕 No se encontraron usuarios que coincidan</h3>
   </div>
   <!-- admin-list.component.html -->
   <div class="container-fluid">
@@ -110,14 +140,15 @@
               </ul>
             </div>
           </div>
-          <div class="modal-footer">
+          <div class="modal-footer" *ngIf="usuario">
+            <button type="button" class="btn btn-danger" *ngIf="usuario?.correo" (click)="confirmDeleteUser(usuario.correo)">Borrar Usuario</button>
             <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
             <!--Carga-->
             <div *ngIf="isLoading" class="loading-overlay">
               <div class="loading-spinner"></div>
               <p>Cargando, por favor espera...</p>
             </div>    
-            <button type="submit" class="btn btn-success" (click)="saveUser(usuario!)" [disabled]="(usuario?.nombre || '').trim() === '' || (usuario?.celular || '').trim() === '' || (usuario?.celular || '').trim().length < 10">Guardar</button>
+            <button type="submit" class="btn btn-success" (click)="saveUser(usuario!)" [disabled]="(usuario.nombre || '').trim() === '' || (usuario.celular || '').trim() === '' || (usuario.celular || '').trim().length < 10">Guardar</button>
           </div>
         </div>
       </div>

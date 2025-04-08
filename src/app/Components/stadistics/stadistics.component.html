@@ -1,7 +1,10 @@
-<div class="card">
-  <h2>{{ idInvernadero }}</h2>
-  <canvas baseChart
-    [data]="barChartData"
-    [type]="'bar'">
-  </canvas>
+<div class="container">
+  <div class="card b" style="justify-content: center; justify-items: center;margin-bottom: 50px;margin-top: 15px;">
+    <h2>{{ idInvernadero }}</h2>
+    <canvas baseChart
+      [data]="barChartData"
+      [type]="'bar'"
+      [options]="barChartOptions">
+    </canvas>
+  </div>
 </div>

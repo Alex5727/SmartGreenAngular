@@ -2,27 +2,27 @@
   <div class="title-container text-center" style="padding-bottom: 20px;">
     <h3 class="title-custom">Registrar Invernadero</h3>
   </div>
-</div>
+  <div class="container-custom d-flex justify-content-center align-items-center" style="margin-top: 30px;">
+    <div class="form-container text-center">
+      <img class="img-fluid" src="Icons/Inv.png" alt="imagen de invernadero" style="height: 250px; width: 250px; border-radius: 20px;">
+      <div class="form-group mt-3">
+        <label class="label-custom">ID:</label>
+        <input type="text" [(ngModel)]="idInvernadero" placeholder="ID" class="input-custom mx-auto w-80">
 
-<!-- Registrar Invernadero -->
-<div class="container-custom d-flex justify-content-center align-items-center" style="margin-top: 30px;">
-  <div class="form-container text-center">
-    <img class="img-fluid" src="Icons/Inv.png" alt="imagen de invernadero" style="height: 200px; width: 200px;">
-    <div class="form-group mt-3">
-      <label class="label-custom">ID:</label>
-      <input type="text" id="invernadero-id" placeholder="ID" class="input-custom mx-auto w-80">
+        <label class="label-custom" style="margin-top: 20px;">Tipo:</label>
+        <select [(ngModel)]="tipoInvernadero" class="input-custom mx-auto w-80">
+          <option [ngValue]="null">Seleccionar tipo</option>
+          <option [ngValue]="1">1</option>
+          <option [ngValue]="2">2</option>
+          <option [ngValue]="3">3</option>
+        </select>
+      </div>
 
-      <label class="label-custom" style="margin-top: 20px;">Tipo:</label>
-      <select id="tipo-invernadero" class="input-custom mx-auto w-80">
-        <option>Tipo</option>
-        <option>Pequeño</option>
-        <option>Mediano</option>
-        <option>Grande</option>
-      </select>
+      <p *ngIf="mensajeError" class="text-danger mt-2">{{ mensajeError }}</p>
+
+      <button class="btn-register mt-3" (click)="registerInvernadero()">Registrar</button>
+      <button class="btn-cancel mt-4" (click)="Back()">Cancelar</button>
     </div>
-
-    <button class="btn-register mt-3">Registrar</button>
-    <button class="btn-cancel mt-4" (click)="Back()">Cancelar</button>
   </div>
 </div>
   

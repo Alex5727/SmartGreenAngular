@@ -20,6 +20,41 @@ export class StadisticsComponent {
     datasets: []
   };
 
+  barChartOptions: ChartOptions<'bar'> = {
+    responsive: true,
+    maintainAspectRatio: true,
+    scales: {
+      x: {
+        beginAtZero: true,
+      },
+      y: {
+        beginAtZero: true,
+      }
+    },
+    plugins: {
+      tooltip: {
+        callbacks: {
+          label: (context) => {
+            const label = context.dataset.label || '';
+            const value = context.raw;
+  
+            if (label.startsWith('Humedad')) {
+              return `${label}: ${value}%`;
+            } else if (label.startsWith('Temperatura')) {
+              return `${label}: ${value}°C`;
+            } else if (label.startsWith('Luz')) {
+              return `${label}: ${value} lx`;
+            } else {
+              return `${label}: ${value}`;
+            }
+          }
+        }
+      }
+    }
+  };
+  
+
+
   ngOnInit(): void {
     this.generarGrafica();
   }
@@ -44,8 +79,8 @@ export class StadisticsComponent {
       labels: diasUnicos,
       datasets: [
         { label: 'Humedad', data: humedad, backgroundColor: '#42A5F5' },
-        { label: 'Temperatura', data: temperatura, backgroundColor: '#FFA726' },
-        { label: 'Luz', data: luz, backgroundColor: '#66BB6A' }
+        { label: 'Temperatura', data: temperatura, backgroundColor: '#f03030' },
+        { label: 'Luz', data: luz, backgroundColor: '#FFA726' }
       ]
     };
   }

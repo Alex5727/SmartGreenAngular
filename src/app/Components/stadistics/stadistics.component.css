@@ -1,0 +1,9 @@
+.b{
+    background-color: rgba(230, 230, 230, 0.547);
+    display: flex;         
+    justify-content: center;     
+    align-items: center;
+    width: 1055px;
+    padding: 30px;
+    border-radius: 20px;
+}

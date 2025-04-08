@@ -1,39 +1,39 @@
-<!-- Título de Registrar Usuario -->
+<!-- Formulario de Registro de Usuario -->
 <div class="container">
-  <div class="title-container text-center" style="padding-bottom: 20;">
+  <div class="title-container text-center" style="padding-bottom: 1px;">
     <h3 class="title-custom">Registrar Usuario</h3>
   </div>
-  </div>
-  <!-- Formulario de Registrar Usuario -->
   <div class="container-custom d-flex justify-content-center align-items-center">
     <div class="form-container text-center">
       <h3 class="title-form">Usuarios</h3>
       <img class="imagen" src="Icons/Usuario.png" alt="imagen de cuenta">
-  
+
       <div class="glass-form">
         <label class="label-custom">Tipo:</label>
         <select id="tipo-usuario" class="input-custom mx-auto">
-          <option>Tipo</option>
-          <option>Administrador</option>
-          <option>Usuario</option>
+          <option value="">Seleccione un tipo</option>
+          <option value="admin">admin</option>
+          <option value="user">user</option>
         </select>
-  
+
         <label class="label-custom">Nombre:</label>
         <input type="text" id="nombre-usuario" placeholder="Nombre" class="input-custom mx-auto">
-  
+
         <label class="label-custom">Celular:</label>
         <input type="text" id="celular-usuario" placeholder="Celular" class="input-custom mx-auto">
-  
+
         <label class="label-custom">Correo:</label>
         <input type="email" id="correo-usuario" placeholder="Correo" class="input-custom mx-auto">
-  
+
         <label class="label-custom">Contraseña:</label>
         <input type="password" id="contrasena-usuario" placeholder="Contraseña" class="input-custom mx-auto">
-  
+
         <label class="label-custom">Confirmar contraseña:</label>
         <input type="password" id="confirmar-usuario" placeholder="Confirmar contraseña" class="input-custom mx-auto">
       </div>
-      <button class="btn-register mt-3">Registrar</button>
+
+      <button class="btn-register mt-3" (click)="registerUser()">Registrar</button>
       <button class="btn-cancel mt-4" (click)="Back()">Cancelar</button>
     </div>
+  </div>
 </div>
